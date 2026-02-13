@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 export default function App() {
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [password, setPassword] = useState('');
   const [activeCategory, setActiveCategory] = useState(null);
   const [noButtonPos, setNoButtonPos] = useState({});
   const [clickedCategories, setClickedCategories] = useState(new Set());
 
-  // Button definitions based on user categories
   const categories = {
     'Yes': [
       { file: 'ofcourse.jpg' },
@@ -37,7 +38,6 @@ export default function App() {
     clickedCategories.has('Aint that girl') &&
     clickedCategories.has("I'm your valentine");
 
-  // Import a romantic font from Google Fonts dynamically
   useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@600&display=swap';
@@ -45,15 +45,23 @@ export default function App() {
     document.head.appendChild(link);
   }, []);
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (password.toLowerCase() === 'koosie') {
+      setIsAuthorized(true);
+    } else {
+      alert('Wrong code! Try again ❤️');
+    }
+  };
+
   const handleCategoryClick = (catName) => {
     setActiveCategory(catName);
     setClickedCategories(prev => new Set(prev).add(catName));
   };
 
   const handleNoHover = () => {
-    if (isNoUnlocked) return; // Don't run away if unlocked
+    if (isNoUnlocked) return;
 
-    // Current "No" button runaway logic
     const randomX = Math.floor(Math.random() * 75) + 10;
     const randomY = Math.floor(Math.random() * 75) + 10;
 
@@ -66,12 +74,31 @@ export default function App() {
     });
   };
 
+  if (!isAuthorized) {
+    return (
+      <div className="romantic-container">
+        <div className="login-box">
+          <h2 className="login-title">For Your Eyes Only... ❤️</h2>
+          <form onSubmit={handleLogin}>
+            <input
+              type="password"
+              placeholder="Enter Secret Code"
+              className="password-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit" className="btn login-btn">Unlock</button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="romantic-container">
       <div className="main-content">
         <h1 className="title">Will you be my Valentine?</h1>
 
-        {/* Horizontal Category Buttons */}
         <div className="main-button-group">
           {Object.keys(categories).map((catName) => (
             <button
@@ -86,12 +113,10 @@ export default function App() {
           ))}
         </div>
 
-        {/* Unlock hint for the user */}
         {!isNoUnlocked && activeCategory !== 'No' && (
           <div className="unlock-hint"></div>
         )}
 
-        {/* Display Area for Active Category Images */}
         <div className="response-gallery">
           {activeCategory && categories[activeCategory].map((item, index) => (
             <div key={index} className="media-wrapper">
