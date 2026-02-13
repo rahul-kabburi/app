@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@600&display=swap');
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.romantic-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/heart2.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  color: #000;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  z-index: 10;
+}
+
+@keyframes pulseBg {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #000;
+  margin-bottom: 2rem;
+  text-align: center;
+  mix-blend-mode: multiply;
+}
+
+.main-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  z-index: 20;
+}
+
+.response-gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+  /* Smaller, fixed-ish size */
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 600px;
+  /* Narrower gallery */
+}
+
+.media-wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  /* Keep images uniform and compact */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out both;
+}
+
+.response-media {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(5px);
+}
+
+/* Category Specific Button Styles */
+.yes-btn:hover {
+  background: #c8e6c9;
+  border-color: #4CAF50;
+  transform: scale(1.1);
+}
+
+.maybe-btn:hover {
+  background: #fff9c4;
+  border-color: #FFC107;
+  transform: scale(1.1);
+}
+
+.no-btn:hover {
+  background: #ffcdd2;
+  border-color: #F44336;
+  transform: scale(1.1);
+}
+
+.aint-that-girl-btn:hover {
+  background: #e1bee7;
+  border-color: #9C27B0;
+  transform: scale(1.1);
+}
+
+.i-m-your-valentine-btn:hover {
+  background: #fce4ec;
+  border-color: #f06292;
+  transform: scale(1.1);
+}
+
+/* Floating emojis */
+.floating-hearts-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bg-heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: heartFloat 5s linear infinite;
+  opacity: 0;
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Success state */
+.success-state .title {
+  animation: pulse 1s infinite alternate;
+}
+
+.big-heart {
+  font-size: 5rem;
+  color: #000;
+  mix-blend-mode: multiply;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.unlock-hint {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  animation: fadeIn 0.5s ease-in;
+  z-index: 15;
+  /* Ensure hint is visible above other elements but below main content */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+    padding: 0 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.6rem 2rem;
+    /* Changed from 1.5rem to 2rem */
+    font-size: 1rem;
+  }
+
+  .main-button-group {
+    gap: 0.8rem;
+  }
+}
