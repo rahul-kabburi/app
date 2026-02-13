@@ -78,7 +78,7 @@ export default function App() {
     return (
       <div className={`romantic-container ${!isAuthorized ? 'plain-bg' : ''}`}>
         <div className="login-box">
-          <h2 className="login-title">For Your Eyes Only... ❤️</h2>
+          <h2 className="login-title"></h2>
           <form onSubmit={handleLogin}>
             <input
               type="password"
