@@ -18,16 +18,17 @@ export default function App() {
       { file: 'yawn.jpg' }
     ],
     'No': [
-      { file: 'maybe.jpg' },
-      { file: 'sony.jpg' }
+      { file: 'no.jpg' },
+      { file: 'naah.jpg' },
+      { file: 'daya.jpg' }
     ],
     'Aint that girl': [
-      { file: 'daya.jpg' },
+      { file: 'koos.jpg' },
       { file: 'aint_that_girl.jpg' },
       { file: 'hmm.jpg' }
     ],
     "I'm your valentine": [
-      { file: 'koos.jpg' }
+      { file: 'sony.jpg' }
     ]
   };
 
