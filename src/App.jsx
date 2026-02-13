@@ -13,11 +13,11 @@ export default function App() {
     'Yes': [
       { file: 'ofcourse.jpg' },
       { file: 'definately.jpg' },
-      
+
     ],
     'Maybe': [
       { file: 'formality.jpg' },
-      { file: 'yawn.jpg' }
+      { file: 'yawn.jpg' },
       { file: 'haa.jpg' }
     ],
     'No': [
