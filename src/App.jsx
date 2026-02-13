@@ -11,7 +11,6 @@ export default function App() {
 
   const categories = {
     'Yes': [
-      { file: 'ofcourse.jpg' },
       { file: 'definately.jpg' },
 
     ],
