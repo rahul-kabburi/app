@@ -209,6 +209,11 @@
   }
 }
 
+.romantic-container.plain-bg {
+  background-image: none !important;
+  background-color: #ffffff;
+}
+
 .login-box {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);

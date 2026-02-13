@@ -76,7 +76,7 @@ export default function App() {
 
   if (!isAuthorized) {
     return (
-      <div className="romantic-container">
+      <div className={`romantic-container ${!isAuthorized ? 'plain-bg' : ''}`}>
         <div className="login-box">
           <h2 className="login-title">For Your Eyes Only... ❤️</h2>
           <form onSubmit={handleLogin}>
