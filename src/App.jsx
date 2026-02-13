@@ -20,13 +20,12 @@ export default function App() {
     ],
     'No': [
       { file: 'no.jpg' },
-      { file: 'naah.jpg' },
-      { file: 'daya.jpg' }
+      { file: 'naah.jpg' }
     ],
     'Aint that girl': [
-      { file: 'koos.jpg' },
       { file: 'aint_that_girl.jpg' },
-      { file: 'hmm.jpg' }
+      { file: 'hmm.jpg' },
+      { file: 'daya.jpg' }
     ],
     "I'm your valentine": [
       { file: 'sony.jpg' }
