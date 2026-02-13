@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('/heart2.webp');
+  background-image: url('/app/heart2.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

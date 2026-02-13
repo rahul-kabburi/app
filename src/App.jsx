@@ -95,7 +95,7 @@ export default function App() {
           {activeCategory && categories[activeCategory].map((item, index) => (
             <div key={index} className="media-wrapper">
               <img
-                src={`/${item.file}`}
+                src={`${import.meta.env.BASE_URL}${item.file}`}
                 className="response-media"
                 alt={`${activeCategory} reaction ${index}`}
               />
